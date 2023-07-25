@@ -1,33 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"
+>
 <head>
-    <meta charset="UTF-8">
     <title>Film Registration</title>
 </head>
 <body>
-<h1>Cadastro de Filme</h1>
-<form method="post" action="/filmes">
-    <label for="name">Nome:</label>
-    <input id="name" name="name">
+    <div layout:fragment="content">
+        <h1>Cadastro de Filme</h1>
+        <form method="post" action="/filmes">
+            <label for="name">Nome:</label>
+            <input id="name" name="name">
 
-    <br/>
+            <br/>
 
-    <label for="duration">Duração (em minutos):</label>
-    <input id="duration" name="duration">
+            <label for="duration">Duração (em minutos):</label>
+            <input id="duration" name="duration">
 
-    <br/>
+            <br/>
 
-    <label for="year">Ano de lançamento:</label>
-    <input id="year" name="year">
+            <label for="year">Ano de lançamento:</label>
+            <input id="year" name="year">
 
-    <br/>
+            <br/>
 
-    <label for="gender">Gênero:</label>
-    <input id="gender" name="gender">
+            <label for="gender">Gênero:</label>
+            <input id="gender" name="gender">
 
-    <br/>
+            <br/>
 
-    <input type="submit" value="Cadastrar">
-</form>
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
 </body>
 </html>
