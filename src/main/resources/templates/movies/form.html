@@ -10,27 +10,25 @@
     <div layout:fragment="content">
         <h1>Cadastro de Filme</h1>
         <form method="post" action="/filmes">
+
+        <div>
             <label for="name">Nome:</label>
             <input id="name" name="name">
-
-            <br/>
-
+        </div>
+        <div>
             <label for="duration">Duração (em minutos):</label>
             <input id="duration" name="duration">
-
-            <br/>
-
+        </div>
+        <div>
             <label for="year">Ano de lançamento:</label>
             <input id="year" name="year">
-
-            <br/>
-
+        </div>
+        <div>
             <label for="gender">Gênero:</label>
             <input id="gender" name="gender">
+        </div>
 
-            <br/>
-
-            <input type="submit" value="Cadastrar">
+        <input type="submit" value="Cadastrar">
         </form>
     </div>
 </body>
