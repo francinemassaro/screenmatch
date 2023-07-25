@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie List</title>
+</head>
+<body>
+<h1>Lista de Filmes</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>NOME</th>
+            <th>DURAÇÃO</th>
+            <th>ANO DE LANÇAMENTO</th>
+            <th>GÊNERO</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--dependencia thymeleaf que é a que vai deixar fazer coisas dinamicas na página,
+        acessar variável, fazer if, etc.-->
+        <tr th:each="movie : ${list}">
+            <td th:text="${movie.name}"></td>
+            <td th:text="${movie.durationInMinutes}"></td>
+            <td th:text="${movie.releaseYear}"></td>
+            <td th:text="${movie.gender}"></td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
