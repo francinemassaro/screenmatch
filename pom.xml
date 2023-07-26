@@ -42,6 +42,22 @@
             <scope>runtime</scope>
         </dependency>
 
+        <!--Flyway ferramenta para implementar migrações, para simplificar e automatizar o gerenciamento de versões
+        do esquema do banco de dados. Permite que versione e aplique alterações incrementais no esquema do banco
+        de dados de forma controlada e consistente ao longo do tempo.
+
+        Pasta db.migration dentro do resources, e arquivo no padrão V{numero_da_versao}_{nome_do_comando}.sql
+        Para visualizar a tabela de histórico: select * from flyway_schema_history;-->
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-mysql</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
