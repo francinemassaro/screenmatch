@@ -6,6 +6,7 @@ import com.alura.screenmatch.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,6 +44,15 @@ public class MovieController {
 
         //redirect do spring detecta que tem um método get em /filmes, ou seja, ele sabe que vai cair no
         //método get que direciona para a página de listagens
+        return "redirect:/filmes";
+    }
+
+    @DeleteMapping
+    public String removeMovie(Long id){
+        System.out.println("Iniciado exclusão do filme");
+        System.out.println(id);
+
+       repository.deleteById(id);
         return "redirect:/filmes";
     }
 }
