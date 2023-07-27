@@ -1,15 +1,14 @@
 package com.alura.screenmatch.controller;
 
 import com.alura.screenmatch.domain.movie.Movie;
+import com.alura.screenmatch.domain.movie.MovieChangeData;
 import com.alura.screenmatch.domain.movie.MovieRegistrationData;
 import com.alura.screenmatch.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +21,11 @@ public class MovieController {
     private MovieRepository repository;
 
     @GetMapping("/formulario")
-    public String loadFormPage(){
+    public String loadFormPage(Long id, Model model){
+        if(id != null){
+            var movie = repository.getReferenceById(id);
+            model.addAttribute("movie", movie);
+        }
         return "movies/form";
     }
 
@@ -33,6 +36,7 @@ public class MovieController {
     }
 
     @PostMapping
+    @Transactional
     public String registerMovie(MovieRegistrationData data){
         System.out.println("Filmes registrados no input " + data);
 
@@ -47,7 +51,18 @@ public class MovieController {
         return "redirect:/filmes";
     }
 
+    @PutMapping
+    @Transactional
+    public String editMovie(MovieChangeData data){
+        System.out.println("Iniciando edição do filme");
+        var movie = repository.getReferenceById(data.id());
+        movie.changeData(data);
+
+        return "redirect:/filmes";
+    }
+
     @DeleteMapping
+    @Transactional
     public String removeMovie(Long id){
         System.out.println("Iniciado exclusão do filme");
         System.out.println(id);

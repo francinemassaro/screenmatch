@@ -33,6 +33,13 @@ public class Movie {
                 '}';
     }
 
+    public void changeData(MovieChangeData data) {
+        this.name=data.name();
+        this.durationInMinutes=data.duration();
+        this.releaseYear=data.year();
+        this.gender=data.gender();
+    }
+
     public Long getId() { return id; }
 
     public String getName() {
@@ -50,4 +57,5 @@ public class Movie {
     public String getGender() {
         return gender;
     }
+
 }

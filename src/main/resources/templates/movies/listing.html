@@ -31,6 +31,9 @@
                 <td th:text="${movie.releaseYear}"></td>
                 <td th:text="${movie.gender}"></td>
                 <td>
+                    <a th:href="@{/filmes/formulario?id={id}(id=${movie.id})}">Editar</a>
+
+
                     <!--html só aceita get e post, por isso por mais que seja excluir, é post e não delete
                     contornamos o problema com um campo escondido, que será tipo hidden, com nome padrão
                     method, e com valor do método http que quer substituir.
